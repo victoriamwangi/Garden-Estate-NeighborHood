@@ -1,0 +1,14 @@
+{%extends 'registration/base.html'%}{%load bootstrap5%} {%block content%}
+<div class="container">
+  {%if form.erros%}
+  <p>Some information might be incorrect</p>
+  {%endif%}
+  <form action="/accounts/login/">
+    {%csrf_token%}{%bootstrap_form form%}
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary" value="Login" />
+    </div>
+    <input type="hidden" name="next" id="" value'{{next}}'>
+  </form>
+</div>
+{%endblock%}
