@@ -8,13 +8,15 @@
     <title></title>
     {%block styles%}{%bootstrap_css%}
     <link rel="stylesheet" href="{%static 'css/style.css'%}" />
+    <link
+      rel="stylesheet"
+      href="{%static 'path/to/font-awesome/css/font-awesome.min.css'%}"
+    />
 
     {%endblock%}
   </head>
   <body>
-    {%block content%} {%include 'navbar.html'%}
-    <p>hello world</p>
-    {%endblock%} {%block scripts%}
+    {%block content%} {%include 'navbar.html'%} {%endblock%} {%block scripts%}
 
     <script src="{% static 'js/script.js'%}"></script>
 
