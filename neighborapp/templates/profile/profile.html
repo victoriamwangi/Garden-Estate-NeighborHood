@@ -1,0 +1,23 @@
+{%extends 'base.html'%}{%load bootstrap5%}{%block content%}
+<div class="row">
+  <div class="col-lg-8">
+    <p>{{user}}</p>
+    <p>{{user.email}}</p>
+    <p>{{user.profile.neighborhood}}</p>
+  </div>
+  <div class="col-lg-4">
+    <div class="container">
+      <p>{{user.username}}</p>
+      <form action="{%url 'profile'%}">
+        {%csrf_token%} {%bootstrap_form profileform%}
+        <input
+          type="submit"
+          class="btn btn-success btn-lg allbtn submitprof"
+          value="Post"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+
+{%endblock%}

@@ -25,3 +25,14 @@ class Business(models.Model):
     
     def __str__(self):
         return self.biz_name
+    
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user_profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
+    bio = models.CharField(max_length=255)
+    post_name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='posts/')
+    
+    
+    def __str__(self):
+        return self
