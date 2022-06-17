@@ -16,6 +16,9 @@ class Profile(models.Model):
     neighborhood = models.OneToOneField(Neighborhood, on_delete= models.CASCADE)
     email = models.EmailField(max_length=100)
     
+    def save_profile(self):
+        return self.save()
+    
     def __str__(self):
         return f'{self.user.username}-{self.created}'
 class Business(models.Model):
@@ -28,11 +31,14 @@ class Business(models.Model):
     
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    user_profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
+    user_profile = models.ForeignKey(Profile, on_delete = models.CASCADE, null=True)
     bio = models.CharField(max_length=255)
     post_name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='posts/')
     
+    def save_post(self):
+        return self.save()
+    
     
     def __str__(self):
-        return self
+        return self.post_name

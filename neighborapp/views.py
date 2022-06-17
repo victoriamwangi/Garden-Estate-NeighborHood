@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import ProfileForm
+from .forms import ProfileForm, PostForm
 from django.contrib import messages
 # Create your views here.
 def home(request):
@@ -20,5 +20,20 @@ def profile(request):
     
   
     return render (request, 'profile/profile.html', {"profileform": profileform})
+
+# @login_required(login_url='/accounts/login/')          
+def new_post(request):
+    user = request.user
+    if request.method =='POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post =form.save(commit=False)
+            post.user = request.user
             
+            form.save()
+        return redirect('home')
+    else:
+        form = PostForm()
+    return render(request, 'posts/post.html', {'form': form})
+           
 
