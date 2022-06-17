@@ -39,6 +39,10 @@ class Post(models.Model):
     def save_post(self):
         return self.save()
     
+    @classmethod
+    def get_posts(self):
+        all_posts = Post.objects.all()
+        return all_posts
     
     def __str__(self):
         return self.post_name
