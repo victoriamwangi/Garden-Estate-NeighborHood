@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('neighborapp.urls')),
     re_path(r'^accounts/', include('registration.backends.simple.urls')),
-    path('logout', auth_views.logout_then_login)
+    path('accounts/', include('django.contrib.auth.urls')),
+   
+    re_path(r'^logout/$', auth_views.logout_then_login), 
 ]

@@ -1,15 +1,22 @@
-{%extends 'registration/base.html'%}{%load bootstrap5%} {%block content%}
-<div class="container">
-  {%if form.erros%}
-  <p>Some information might be incorrect</p>
-  {%endif%}
-  <form action="/accounts/register/">
-    {%csrf_token%}{%bootstrap_form form%}
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary" value="Sign Up" />
+{%extends 'registration/base.html'%} {%load bootstrap5%} {%block content%}
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="container">
+      {%if form.errors%}
+      <p>Kindly fill in the correct details</p>
+      {%endif%}
+      <form class="registerfrm" action="/accounts/register/" method="post">
+        {%bootstrap_form form%}
+        <input type="submit" value="Sign Up" class="allbtn" />
+         {%csrf_token%}
+         <p>Already have an account?
+            <a href='/accounts/login'>Login<a/>
+          </p>
+      </form>
     </div>
-    <input type="hidden" name="next" id="" value'{{next}}'/>
-    <p>Already have an account? <a href="/accounts/login/">Sign In</a></p>
-  </form>
+    <input type='hidden' name="next" value='{{next}}' >
+  </div>
+  <div class="col-md-4"></div>
 </div>
 {%endblock%}

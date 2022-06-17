@@ -3,21 +3,18 @@
   <div class="col-lg-8">
     <p>{{user}}</p>
     <p>{{user.email}}</p>
-    <p>{{user.profile.neighborhood}}</p>
+    <a
+      name=""
+      id=""
+      class="btn btn-primary"
+      href="{%url 'update_profile' user.username %}"
+      role="button"
+      >update</a
+    >
+    <p>{{user.profile.username}}</p>
+    <p>{{user.profile.bio}}</p>
   </div>
-  <div class="col-lg-4">
-    <div class="container">
-      <p>{{user.username}}</p>
-      <form action="{%url 'profile'%}">
-        {%csrf_token%} {%bootstrap_form profileform%}
-        <input
-          type="submit"
-          class="btn btn-success btn-lg allbtn submitprof"
-          value="Post"
-        />
-      </form>
-    </div>
-  </div>
+  <div class="col-lg-4"></div>
 </div>
 
 {%endblock%}
