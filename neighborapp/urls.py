@@ -9,6 +9,8 @@ urlpatterns = [
     path('new/post', views.new_post, name='newpost'),
     path('profile/<username>/settings', views.update_profile, name='update_profile'),
     path('profiles/<username>', views.show_profile, name='show_profile'),
+    path('business/<bizname>', views.show_business, name='show_business'),
+    
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
