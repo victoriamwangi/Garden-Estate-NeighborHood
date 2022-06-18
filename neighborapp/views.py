@@ -66,10 +66,11 @@ def new_post(request):
 
 def show_profile(request, username):  
     # user = get_object_or_404(User, username=username)
-    user = User.objects.get(username=username)
-    user_profile = profile.objects.get(user=user)
+    user = get_object_or_404(User, username=username)
+    user_posts = Post.objects.filter(user=user)
     context = {
-        "user": user
+        "user": user,
+        " user_posts":  user_posts
         
     }
     return render(request, 'profile/user_profile.html', context)
