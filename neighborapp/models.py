@@ -54,6 +54,7 @@ class Post(models.Model):
     bio = models.CharField(max_length=255)
     post_name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='posts/')
+    pub_date= models.DateTimeField(auto_now_add=True)
     
     def save_post(self):
         return self.save()

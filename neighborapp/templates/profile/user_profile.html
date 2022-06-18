@@ -1,0 +1,13 @@
+{%extends 'base.html'%}{%load bootstrap5%}{%block content%}
+<div class="row">
+  <div class="col-lg-8">
+    <p>{{user}}</p>
+    <p>{{user.email}}</p>
+    <a name="" id="" class="btn btn-primary" href="" role="button">update</a>
+    <p>{{user.profile.username}}</p>
+    <p>{{user.profile.bio}}</p>
+  </div>
+  <div class="col-lg-4"></div>
+</div>
+
+{%endblock%}

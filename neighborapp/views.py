@@ -8,7 +8,7 @@ from django.urls import reverse
 
 # Create your views here.
 def home(request):
-    posts = Post.get_posts()
+    posts = Post.get_posts().order_by('-pub_date')
     context = {
         "posts": posts
     }
@@ -43,12 +43,7 @@ def update_profile(request, username):
             "profileform": profileform
     }
     return render(request, "profile/update_profile.html", context)
-    
-    
-    
-    
-    
-    
+ 
     
 @login_required(login_url='/accounts/login/')          
 def new_post(request):
@@ -64,5 +59,19 @@ def new_post(request):
     else:
         form = PostForm()
     return render(request, 'posts/post.html', {'form': form})
+
+def show_profile(request, username):
+    
+    current_user = request.user
+    if current_user == request.user:
+        return redirect('profile', current_user.username)
+    else:
+        current_user = User.query.get(username= username)
+          
+    context = {
+        "user": current_user
+        
+    }
+    return render(request, 'profile/user_profile.html', context)
            
 
