@@ -9,23 +9,30 @@ from django.dispatch import receiver
 
 
 
-# class Neighborhood(models.Model):
-#     name = models.CharField(max_length= 100)
-#     location = models.CharField(max_length=100)
-#     occupants_count = models.IntegerField(default= 0, null=True, blank=True)
+class Neighborhood(models.Model):
+    name = models.CharField(max_length= 100)
+    location = models.CharField(max_length=100)
+    occupants_count = models.IntegerField(default= 0, null=True, blank=True)
+    health_contact= models.CharField(max_length= 20, blank=True)
+    police_contact = models.CharField(max_length=30, blank=True)
     
-#     def __str__(self):
-#         return self.name
+    @classmethod
+    def all_hoods(self):
+        hoods =Neighborhood.objects.all()
+        return hoods
+    
+    def __str__(self):
+        return self.name
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete= models.CASCADE, related_name= 'profile')
     username= models.CharField(max_length= 100, blank=True)
-    # neighborhood = models.OneToOneField(Neighborhood, on_delete= models.CASCADE)
+    neighborhood = models.OneToOneField(Neighborhood, on_delete= models.CASCADE, null= True)
     email = models.EmailField(max_length=100, blank=True)
     prof_image = models.ImageField(default='default.png', upload_to = 'profiles/')
     bio = models.CharField(max_length= 30, null=True, blank=True)
-    first_name = models.CharField(max_length=40, null=True, blank=True)
-    second_name = models.CharField(max_length=40, null=True, blank=True)
+    first_name = models.CharField(max_length=40, null=True)
+    second_name = models.CharField(max_length=40, null=True)
     
     @receiver(post_save, sender=User,) 
     def create_profile(sender, instance, created, **kwargs, ):
@@ -43,7 +50,15 @@ class Profile(models.Model):
 class Business(models.Model):
     biz_name = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete= models.CASCADE)
-    # neighborhood = models.OneToOneField(Neighborhood, on_delete=models.CASCADE)
+    neighborhood = models.OneToOneField(Neighborhood, on_delete=models.CASCADE, related_name= 'business',null= True )
+    description = models.CharField(max_length=200,  null=True)
+    business_url =  models.CharField(max_length=200,  null=True)
+    business_email = models.CharField(max_length=100, null=True)
+    
+    @classmethod
+    def all_business(self):
+        businesses = Business.objects.all()
+        return businesses
     
     def __str__(self):
         return self.biz_name

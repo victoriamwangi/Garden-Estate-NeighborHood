@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,  get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib import messages
@@ -9,8 +9,12 @@ from django.urls import reverse
 # Create your views here.
 def home(request):
     posts = Post.get_posts().order_by('-pub_date')
+    hoods = Neighborhood.all_hoods()
+    businesses = Business.all_business()
     context = {
-        "posts": posts
+        "posts": posts,
+        "hoods": hoods,
+        "businesses": businesses
     }
     
     return render(request, 'home.html',context ) 
@@ -60,18 +64,20 @@ def new_post(request):
         form = PostForm()
     return render(request, 'posts/post.html', {'form': form})
 
-def show_profile(request, username):
-    
-    current_user = request.user
-    if current_user == request.user:
-        return redirect('profile', current_user.username)
-    else:
-        current_user = User.query.get(username= username)
-          
+def show_profile(request, username):  
+    # user = get_object_or_404(User, username=username)
+    user = User.objects.get(username=username)
+    user_profile = profile.objects.get(user=user)
     context = {
-        "user": current_user
+        "user": user
         
     }
     return render(request, 'profile/user_profile.html', context)
-           
+    
+  
 
+#  if current_user == request.user:
+#         return redirect('profile', current_user.username)
+#     else:
+#         current_user = User.query.get(username= username)
+          
