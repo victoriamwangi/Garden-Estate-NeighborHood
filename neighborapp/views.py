@@ -23,13 +23,9 @@ def home(request):
 def profile(request, username):
     current_user = request.user
     postss = Post.get_posts()
-    hoods = Neighborhood.all_hoods()
-    
-    
-    # posts = request.user.profile.posts.all() "posts":posts,
-    
+    hoods = Neighborhood.all_hoods()    
     # posts = Post.search_by_user(user)
-    return render(request, 'profile/profile.html',{ "postss": postss, "hoods": hoods,})
+    return render(request, 'profile/profile.html',{ "postss": postss, "hoods": hoods,"current_user":current_user, })
 
 def show_profile(request, username):    
     # only view profiles in your hood 

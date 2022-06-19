@@ -78,6 +78,8 @@ body {
 
 .main-content .card {
     width: 45vw;
+    margin-bottom: 2vw;
+    border-radius: 10px;
 }
 
 .main-content .card-img-top {
@@ -153,4 +155,27 @@ body {
 .registerfrm h5 {
     color: purple !important;
     font-size: 1.5vw;
+}
+
+
+/* PROFILE PAGE */
+
+.updatebtn {
+    width: 10vw !important;
+    background-color: purple;
+}
+
+.profdetail {
+    padding-top: 3vw !important;
+    display: flex;
+}
+
+.profdetail p span {
+    color: purple;
+    font-size: bold !important;
+}
+
+.profdetail img {
+    width: 25vw;
+    margin-right: 3vw !important;
 }

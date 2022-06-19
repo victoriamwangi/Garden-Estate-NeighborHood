@@ -1,60 +1,32 @@
 {%extends 'base.html'%}{%load bootstrap5%}{%block content%}
 <div class="row">
-  <div class="col-lg-8">
-    <p>{{user}}</p>
-    <p>{{user.email}}</p>
-    <a
-      name=""
-      id=""
-      class="btn btn-primary"
-      href="{%url 'update_profile' user.username %}"
-      role="button"
-      >update</a
-    >
-    <p>{{user.profile.username}}</p>
-    <p>{{user.profile.bio}}</p>
-    <p>{{user.profile.neighborhood}}</p>
-  </div>
-  <div class="col-lg-6">
-    {%if posts%} {%for post in posts %}
-    <div class="card">
-      <a name="" id="" class="btn btn-primary" href="" role="button"
-        >{{post.user.username}}</a
-      >
-      <img class="card-img-top" src="{{post.image.url}}" alt="" />
-      <div class="card-body">
-        <h4 class="card-title">HAIJISKII</h4>
-        <p class="card-text">{{post.user.profile.neighborhood}}</p>
-      </div>
-    </div>
-    {%endfor%} {%endif%}
-  </div>
-  <div class="dropdown">
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      id="dropdownMenuButton1"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Dropdown button
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      {%for hood in hoods%}
-      <li>
-        <a
-          name=""
-          id=""
-          class="btn btn-primary"
-          href="{%url 'hood' hood.name%}"
-          role="button"
-          >{{hood.name}}</a
-        >
-      </li>
+  <div class="col-lg-2"></div>
 
-      {%endfor%}
-    </ul>
-    <p>CHECK HERE{{hood}}</p>
+  <div class="col-lg-4 profdetail">
+    <img
+      class="card-img-top profimg"
+      src="{{user.profile.prof_image.url}}"
+      alt="damn"
+    />
+    <div class="texty">
+      <p>
+        <span>Username:</span>
+        {{user}}
+      </p>
+      <p><span>Email: </span> {{user.email}}</p>
+      <p><span>Bio: </span>{{user.profile.bio}}</p>
+      <p><span>My Neighborhood: </span> {{user.profile.neighborhood}}</p>
+      {%if current_user == request.user%}
+      <a
+        name=""
+        id=""
+        class="btn btn-primary updatebtn"
+        href="{%url 'update_profile' user.username %}"
+        role="button"
+        >UPDATE</a
+      >
+      {%endif%}
+    </div>
   </div>
 </div>
 
