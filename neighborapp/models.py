@@ -21,6 +21,8 @@ class Neighborhood(models.Model):
         hoods =Neighborhood.objects.all()
         return hoods
     
+    
+    
     def __str__(self):
         return self.name
 
@@ -51,6 +53,7 @@ class Business(models.Model):
     biz_name = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete= models.CASCADE)
     neighborhood = models.OneToOneField(Neighborhood, on_delete=models.CASCADE, related_name= 'business',null= True )
+    
     description = models.CharField(max_length=200,  null=True)
     business_url =  models.CharField(max_length=200,  null=True)
     business_email = models.CharField(max_length=100, null=True)
@@ -64,10 +67,9 @@ class Business(models.Model):
         return self.biz_name
     
 class Post(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
-    user_profile = models.ForeignKey(Profile, on_delete = models.CASCADE, null=True)
-    bio = models.CharField(max_length=255)
-    post_name = models.CharField(max_length=255)
+    user= models.ForeignKey(User, on_delete = models.CASCADE, null=True, related_name="posts")
+    description = models.CharField(max_length=255)
+    hood = models.ForeignKey(Neighborhood, on_delete = models.CASCADE, null=True)
     image = models.ImageField(upload_to='posts/')
     pub_date= models.DateTimeField(auto_now_add=True)
     
@@ -79,10 +81,16 @@ class Post(models.Model):
         all_posts = Post.objects.all()
         return all_posts
     @classmethod
+    def get_post_by_hood(cls, hood, ):
+        posts= cls.objects.filter(hood = hood)
+        return posts
+    
+    
+    @classmethod
     def search_by_user(cls, user):
         posts= cls.objects.filter(user=user)
         return posts
     
     
     def __str__(self):
-        return self.post_name
+        return self.description

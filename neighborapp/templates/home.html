@@ -24,12 +24,23 @@
 
         {%endfor%}
       </ul>
+      <p>CHECK HERE{{hood}}</p>
     </div>
     {%for hood in hoods%}
-    <p>hood_name: {{hood.name}}</p>
-    <p>hood_name: {{hood.health_contact}}</p>
-    <p>hood_name: {{hood.police_contact}}</p>
+    <p>
+      hood_name: {{hood.name}}
 
+      <a
+        name=""
+        id=""
+        class="btn btn-primary"
+        href="{%url 'hood' hood.name%}"
+        role="button"
+        >{{hood.name}}</a
+      >
+    </p>
+    <p>hood_health: {{hood.health_contact}}</p>
+    <p>hood_police {{hood.police_contact}}</p>
     {%endfor%}
   </div>
 
@@ -40,14 +51,14 @@
         name=""
         id=""
         class="btn btn-primary"
-        href="{%url 'show_profile' post.user.username%}"
+        href="{%url 'show_profile' post.user.username %}"
         role="button"
-        >{{post.user.username}}</a
+        >{{post.user}}</a
       >
       <img class="card-img-top" src="{{post.image.url}}" alt="" />
       <div class="card-body">
         <h4 class="card-title">Title</h4>
-        <p class="card-text">Text</p>
+        <p class="card-text">{{post.user.profile.neighborhood}}</p>
       </div>
     </div>
     {%endfor%}

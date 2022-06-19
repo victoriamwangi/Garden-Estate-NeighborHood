@@ -13,8 +13,22 @@
     >
     <p>{{user.profile.username}}</p>
     <p>{{user.profile.bio}}</p>
+    <p>{{user.profile.neighborhood}}</p>
   </div>
-  <div class="col-lg-4"></div>
+  <div class="col-lg-6">
+    {%if posts%} {%for post in posts %}
+    <div class="card">
+      <a name="" id="" class="btn btn-primary" href="" role="button"
+        >{{post.user.username}}</a
+      >
+      <img class="card-img-top" src="{{post.image.url}}" alt="" />
+      <div class="card-body">
+        <h4 class="card-title">HAIJISKII</h4>
+        <p class="card-text">{{post.user.profile.neighborhood}}</p>
+      </div>
+    </div>
+    {%endfor%} {%endif%}
+  </div>
 </div>
 
 {%endblock%}

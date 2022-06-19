@@ -1,0 +1,21 @@
+{%extends 'base.html'%} {%block content%}
+<div class="row">
+  <h4 class="card-title">HAIJISKII</h4>
+
+  <div class="col-lg-6">
+    {%for post in hood_posts %}
+    <div class="card">
+      <a name="" id="" class="btn btn-primary" href="" role="button"
+        >{{post.user.username}}</a
+      >
+      <img class="card-img-top" src="{{post.image.url}}" alt="" />
+      <div class="card-body">
+        <h4 class="card-title">HAIJISKII</h4>
+        <p class="card-text">{{post.user.profile.neighborhood}}</p>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+  <div class="col-lg-3"></div>
+</div>
+{%endblock%}

@@ -3,7 +3,7 @@ from .models import *
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ("username","email", "prof_image","bio", "first_name", "second_name")
+        fields = ("username","email", "prof_image","bio", "first_name", "second_name", 'neighborhood')
 class UpdateUserForm(forms.ModelForm):
     class Meta:
         model = User
@@ -12,4 +12,14 @@ class UpdateUserForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude =["user_profile", "user"]
+        exclude =["user_profile", "user", "hood"]
+        
+        
+# from django_registration.forms import RegistrationForm
+
+# from mycustomuserapp.models import MyCustomUser
+
+
+# class MyCustomUserForm(RegistrationForm):
+#     class Meta(RegistrationForm.Meta):
+#         model = MyCustomUser
