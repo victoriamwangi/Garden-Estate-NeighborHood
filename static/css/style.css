@@ -122,10 +122,13 @@ body {
     width: 100%;
     background-color: purple;
     height: 3vw !important;
+    color: white;
+    font-weight: bold;
 }
 
 .registerfrm,
-.update {
+.update,
+.loginfrm {
     width: 40vw !important;
     margin: 0 auto;
     box-shadow: 1px 1px 5px grey;
@@ -135,6 +138,10 @@ body {
     padding-left: 5vw;
     padding-top: 2vw;
     padding-bottom: 2vw;
+}
+
+.loginfrm {
+    height: 55vh;
 }
 
 .post-form input,

@@ -7,10 +7,12 @@
       <p>Kindly fill in the correct details</p>
       {%endif%}
       <form class='loginfrm' action="/accounts/login/" method="post">
+        <h5 class='formtitle'>LOGIN</h5>
+        
         {%csrf_token%} {%bootstrap_form form%}
         <input type="submit" value="Login" class="allbtn"/>
-         <p>Already have an account?
-            <a href='/accounts/register'>Sign Up<a/>
+         <p class="ask">Already have an account?
+            <a  class='sign'  href='/accounts/register'>Sign Up<a/>
           </p>
       </form>
     </div>
