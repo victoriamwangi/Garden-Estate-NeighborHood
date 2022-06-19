@@ -24,6 +24,10 @@ body {
     margin-right: 4vw;
 }
 
+.navbar form {
+    margin-left: 2vw !important;
+}
+
 .collapse {
     margin-left: 16vw !important;
 }
@@ -37,6 +41,13 @@ body {
 .navbar-brand {
     color: white !important;
     font-weight: bold !important;
+}
+
+.logout {
+    margin-left: 8vw !important;
+    /* background-color: white;
+    border: 1px solid purple;
+    color: purple !important; */
 }
 
 .sidebar {
