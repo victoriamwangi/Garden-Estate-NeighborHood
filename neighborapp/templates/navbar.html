@@ -24,12 +24,13 @@
           <a class="nav-link" href="{% url 'newpost'%}">Post</a>
         </li>
 
-        <form class="d-flex">
+        <form class="d-flex" action="{%url 'search'%}">
           <input
             class="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
+            name="business"
           />
         </form>
         {%if user.is_authenticated%}

@@ -11,6 +11,8 @@ urlpatterns = [
     path('profile/<username>/settings', views.update_profile, name='update_profile'),
     path('profiles/<username>/profile/', views.show_profile, name='show_profile'),  
     path('business/<bizname>', views.show_business, name='show_business'),
+    path('search', views.search_biz, name='search'),
+    
     
 ]
 if settings.DEBUG:
