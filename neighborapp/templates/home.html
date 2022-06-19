@@ -1,68 +1,61 @@
 {%extends 'base.html'%} {%block content%}
-<div class="row">
-  <div class="col-lg-3">
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        {%for business in businesses%}
-        <li>
-          <a
-            class="dropdown-item"
-            href="{%url 'show_business' business.biz_name%}"
-          >
-            {{business.biz_name}}
-          </a>
-        </li>
 
-        {%endfor%}
-      </ul>
-      <p>CHECK HERE{{hood}}</p>
-    </div>
-    {%for hood in hoods%}
-    <p>
-      hood_name: {{hood.name}}
+<div class="sidebar" id="infor">
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      {%for hood in hoods%}
+      <li>
+        <a
+          name=""
+          id=""
+          class="btn btn-primary"
+          href="{%url 'hood' hood.name%}"
+          role="button"
+          >{{hood.name}}</a
+        >
+      </li>
 
-      <a
-        name=""
-        id=""
-        class="btn btn-primary"
-        href="{%url 'hood' hood.name%}"
-        role="button"
-        >{{hood.name}}</a
-      >
-    </p>
-    <p>hood_health: {{hood.health_contact}}</p>
-    <p>hood_police {{hood.police_contact}}</p>
-    {%endfor%}
+      {%endfor%}
+    </ul>
+    <p>CHECK HERE{{hood}}</p>
   </div>
+  <ul>
+    {%for business in businesses%}
 
-  <div class="col-lg-6">
-    {%for post in posts%}
-    <div class="card">
-      <a
-        name=""
-        id=""
-        class="btn btn-primary"
-        href="{%url 'show_profile' post.user.username %}"
-        role="button"
-        >{{post.user}}</a
-      >
-      <img class="card-img-top" src="{{post.image.url}}" alt="" />
-      <div class="card-body">
-        <h4 class="card-title">Title</h4>
-        <p class="card-text">{{post.user.profile.neighborhood}}</p>
-      </div>
-    </div>
+    <li>
+      <a class="dropdown-item" href="{%url 'show_business' business.biz_name%}">
+        {{business.biz_name}}
+      </a>
+    </li>
     {%endfor%}
+  </ul>
+</div>
+<div class="main-content">
+  {%for post in posts%}
+  <div class="card">
+    <a
+      name=""
+      id=""
+      class="btn btn-primary"
+      href="{%url 'show_profile' post.user.username %}"
+      role="button"
+      >{{post.user}}</a
+    >
+    <img class="card-img-top" src="{{post.image.url}}" alt="" />
+    <div class="card-body">
+      <h4 class="card-title">Title</h4>
+      <p class="card-text">{{post.user.profile.neighborhood}}</p>
+    </div>
   </div>
-  <div class="col-lg-3"></div>
+  {%endfor%}
 </div>
 {%endblock%}

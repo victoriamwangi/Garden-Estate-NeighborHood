@@ -1,5 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: 0.7s;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden !important;
+    background-color: #ddd;
+}
+
 .navbar {
-    background-color: red !important;
+    background-color: #585861 !important;
+    position: sticky !important;
+    top: 0 !important;
+    height: 60px;
+    width: 100%;
+    z-index: 999 !important;
 }
 
 .navbar .navbar-brand {
@@ -19,4 +37,21 @@
 .navbar-brand {
     color: white !important;
     font-weight: bold !important;
+}
+
+.sidebar {
+    width: 300px !important;
+    background-color: red !important;
+    height: calc(100vh - 60px) !important;
+    position: fixed !important;
+    top: 50px;
+    left: 0;
+}
+
+.main-content {
+    /* position: relative !important; */
+    margin-left: 300px;
+    width: calc(100vw - 300px) !important;
+    min-height: 100vh !important;
+    padding: 12px 16px;
 }
