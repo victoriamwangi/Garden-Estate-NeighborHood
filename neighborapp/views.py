@@ -9,11 +9,10 @@ from django.urls import reverse
 
 def home(request):
     posts = Post.get_posts().order_by('-pub_date')
-    hoods = Neighborhood.all_hoods()
     businesses = Business.all_business()
     context = {
         "posts": posts,
-        "hoods": hoods,
+        
         "businesses": businesses
     }
     
@@ -24,11 +23,13 @@ def home(request):
 def profile(request, username):
     current_user = request.user
     postss = Post.get_posts()
+    hoods = Neighborhood.all_hoods()
+    
     
     # posts = request.user.profile.posts.all() "posts":posts,
     
     # posts = Post.search_by_user(user)
-    return render(request, 'profile/profile.html',{ "postss": postss})
+    return render(request, 'profile/profile.html',{ "postss": postss, "hoods": hoods,})
 
 def show_profile(request, username):    
     # only view profiles in your hood 

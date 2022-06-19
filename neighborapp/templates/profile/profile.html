@@ -29,6 +29,33 @@
     </div>
     {%endfor%} {%endif%}
   </div>
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      {%for hood in hoods%}
+      <li>
+        <a
+          name=""
+          id=""
+          class="btn btn-primary"
+          href="{%url 'hood' hood.name%}"
+          role="button"
+          >{{hood.name}}</a
+        >
+      </li>
+
+      {%endfor%}
+    </ul>
+    <p>CHECK HERE{{hood}}</p>
+  </div>
 </div>
 
 {%endblock%}
