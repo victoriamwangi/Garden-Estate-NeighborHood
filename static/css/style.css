@@ -202,3 +202,9 @@ body {
     padding-bottom: 2vw;
     height: 110vh;
 }
+
+.biztitle {
+    color: purple;
+    font-size: 1.4vw;
+    font-weight: bold;
+}
