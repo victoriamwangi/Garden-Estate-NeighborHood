@@ -12,7 +12,7 @@ body {
 }
 
 .navbar {
-    background-color: #585861 !important;
+    background-color: purple !important;
     position: sticky !important;
     top: 0 !important;
     height: 60px;
@@ -52,7 +52,7 @@ body {
 
 .sidebar {
     width: 300px !important;
-    background-color: #585861 !important;
+    background-color: #a0a0a8 !important;
     height: calc(100vh - 60px) !important;
     position: fixed !important;
     top: 60px;
