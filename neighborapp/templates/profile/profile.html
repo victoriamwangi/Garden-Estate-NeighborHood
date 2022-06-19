@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-lg-2"></div>
 
-  <div class="col-lg-4 profdetail">
+  <div class="col-lg-8 profdetail">
     <img
       class="card-img-top profimg"
       src="{{user.profile.prof_image.url}}"
@@ -16,7 +16,7 @@
       <p><span>Email: </span> {{user.email}}</p>
       <p><span>Bio: </span>{{user.profile.bio}}</p>
       <p><span>My Neighborhood: </span> {{user.profile.neighborhood}}</p>
-      {%if current_user == request.user%}
+
       <a
         name=""
         id=""
@@ -25,7 +25,6 @@
         role="button"
         >UPDATE</a
       >
-      {%endif%}
     </div>
   </div>
   <div class="col-lg-2"></div>

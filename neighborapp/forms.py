@@ -20,6 +20,7 @@ class PostForm(forms.ModelForm):
 # from mycustomuserapp.models import MyCustomUser
 
 
+
 # class MyCustomUserForm(RegistrationForm):
 #     class Meta(RegistrationForm.Meta):
 #         model = MyCustomUser

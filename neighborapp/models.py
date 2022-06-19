@@ -52,11 +52,11 @@ class Profile(models.Model):
 class Business(models.Model):
     biz_name = models.CharField(max_length=100)
     owner = models.ForeignKey(User, on_delete= models.CASCADE)
-    neighborhood = models.OneToOneField(Neighborhood, on_delete=models.CASCADE, related_name= 'business',null= True )
-    
+    neighborhood = models.ManyToManyField(Neighborhood, related_name= 'business',null= True )    
     description = models.CharField(max_length=200,  null=True)
     business_url =  models.CharField(max_length=200,  null=True)
     business_email = models.CharField(max_length=100, null=True)
+    business_image = models.ImageField(default='default.png', upload_to = 'business/')
     
     @classmethod
     def all_business(self):

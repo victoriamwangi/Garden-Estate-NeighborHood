@@ -2,7 +2,8 @@
 
 <div class="sidebar" id="infor">
   <ul>
-    BUSINESSES {%for business in businesses%}
+    <p>BUSINESSES</p>
+    {%for business in businesses%}
 
     <li>
       <a class="dropdown-item" href="{%url 'show_business' business.biz_name%}">

@@ -67,6 +67,12 @@ body {
     list-style: none;
 }
 
+.sidebar p {
+    color: purple;
+    font-weight: bold;
+    /* background-color: rgb(236, 233, 233); */
+}
+
 .main-content {
     /* position: relative !important; */
     margin-left: 300px;
@@ -196,3 +202,11 @@ body {
     padding-bottom: 2vw;
     height: 110vh;
 }
+
+
+/* .texty {
+    width: 30vw !important;
+} */
+
+
+/* BUSINESS PAGE */

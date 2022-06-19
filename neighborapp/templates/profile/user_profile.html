@@ -1,13 +1,34 @@
 {%extends 'base.html'%}{%load bootstrap5%}{%block content%}
 <div class="row">
-  <div class="col-lg-8">
-    <p>{{user}}</p>
-    <p>{{user.email}}</p>
-    <a name="" id="" class="btn btn-primary" href="" role="button">update</a>
-    <p>{{user.profile.username}}</p>
-    <p>{{user.profile.bio}}</p>
+  <div class="col-lg-2"></div>
+
+  <div class="col-lg-8 profdetail">
+    <img
+      class="card-img-top profimg"
+      src="{{user.profile.prof_image.url}}"
+      alt="damn"
+    />
+    <div class="texty">
+      <p>
+        <span>Username:</span>
+        {{user}}
+      </p>
+      <p><span>Email: </span> {{user.email}}</p>
+      <p><span>Bio: </span>{{user.profile.bio}}</p>
+      <p><span>My Neighborhood: </span> {{user.profile.neighborhood}}</p>
+      {%if current_user == user%}
+      <a
+        name=""
+        id=""
+        class="btn btn-primary updatebtn"
+        href="{%url 'update_profile' user.username %}"
+        role="button"
+        >UPDATE</a
+      >
+      {%endif%}
+    </div>
   </div>
-  <div class="col-lg-4"></div>
+  <div class="col-lg-2"></div>
 </div>
 
 {%endblock%}
