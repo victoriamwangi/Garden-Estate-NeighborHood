@@ -68,6 +68,11 @@ body {
 }
 
 .sidebar p {
+    color: white;
+    /* background-color: rgb(236, 233, 233); */
+}
+
+.sidebar p span {
     color: purple;
     font-weight: bold;
     /* background-color: rgb(236, 233, 233); */
@@ -214,4 +219,32 @@ body {
     color: purple;
     font-size: 1.4vw;
     font-weight: bold;
+}
+
+
+/* HOOD */
+
+.hood .card {
+    margin: 2vw;
+}
+
+.hood img {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+}
+
+.card-hoods {
+    display: flex;
+    margin: 2vw;
+}
+
+.card-hoods .btn {
+    border: 1px solid purple;
+    background: transparent;
+    color: purple;
+}
+
+.myhood {
+    background-color: purple;
 }

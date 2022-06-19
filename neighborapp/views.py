@@ -24,7 +24,7 @@ def profile(request, username):
     current_user = request.user
     postss = Post.get_posts()
     hoods = Neighborhood.all_hoods()    
-    # posts = Post.search_by_user(user)
+   
     return render(request, 'profile/profile.html',{ "postss": postss, "hoods": hoods,"current_user":current_user, })
 
 def show_profile(request, username):    
@@ -38,34 +38,32 @@ def show_profile(request, username):
 
     
     return render(request, 'profile/user_profile.html', context)
-def hood(request, hood):
-    # where this uer is there
+@login_required(login_url= '/accounts/login/')
+def hood(request):
     # hoody = get_object_or_404(Neighborhood, name=hood)
-    # user_posts = Post.objects.filter(user=user)
-    # hood = request.user.profile.neighborhood
-    # hoods = Neighborhood.all_hoods()
-    # for i in hoods:
-    #     if i == hood:
-    #         posts = Post.get_post_by_hood(hood= hood)
-    #         return posts
-            
-    # # posts = Post.get_post_by_hood()
-    # # .order_by('-pub_date')
-    # user = request.user 
-    # # if user is in hood A then view all posts from thst hood only
-    
-    
-    # # hoods = Neighborhood.all_hoods()
-    # businesses = Business.all_business()
-      # only view profiles in your hood 
-    hoody = get_object_or_404(Neighborhood, name=hood)
-    hood_posts = Post.objects.filter(hood=hoody)
+    neighborhoods = Neighborhood.all_hoods()
+    posts = Post.get_posts().order_by('-pub_date')
+    businesses = Business.all_business()
     context = {
-        "hood": hood,
-        "hood_posts":  hood_posts   
+        "neighborhoods":  neighborhoods,
+        "posts": posts,
+        "businesses": businesses
+         
     }
     return render(request, 'hood.html', context)
  
+def each_hood(request, hood_id):
+    hood_posts = Post.objects.filter(hood=hood_id).order_by('-pub_date')
+    businesses = Business.objects.filter(neighborhood=hood_id)
+    hood = get_object_or_404(Neighborhood, id=hood_id)
+
+    context = {
+        "hood": hood,
+        "hood_posts": hood_posts,
+        "businesses": businesses
+       
+    }
+    return render(request, 'hood/hood_posts.html', context)
   
 @login_required(login_url= '/accounts/login/')
 def update_profile(request, username):

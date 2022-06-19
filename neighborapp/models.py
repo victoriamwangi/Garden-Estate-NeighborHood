@@ -15,6 +15,7 @@ class Neighborhood(models.Model):
     occupants_count = models.IntegerField(default= 0, null=True, blank=True)
     health_contact= models.CharField(max_length= 20, blank=True)
     police_contact = models.CharField(max_length=30, blank=True)
+    hood_profile = models.ImageField(default='default.png', upload_to = 'hoods/')
     
     @classmethod
     def all_hoods(self):

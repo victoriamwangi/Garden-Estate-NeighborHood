@@ -1,18 +1,33 @@
 {%extends 'base.html'%} {%block content%}
 <div class="row">
-  <h4 class="card-title">HAIJISKII</h4>
+  <div class="col-lg-3"></div>
 
-  <div class="col-lg-6">
-    {%for post in hood_posts %}
+  <div class="col-lg-6 hood">
+    {%for hood in neighborhoods %}
     <div class="card">
-      <a name="" id="" class="btn btn-primary" href="" role="button"
-        >{{post.user.username}}</a
-      >
-      <img class="card-img-top" src="{{post.image.url}}" alt="" />
-      <div class="card-body">
-        <h4 class="card-title">HAIJISKII</h4>
-        <p class="card-text">{{post.user.profile.neighborhood}}</p>
+      <div class="card-hoods">
+        <img
+          class="card-img-top profimg"
+          src="{{hood.hood_profile.url}}"
+          alt=""
+        />
+        <div>
+          <a name="" id="" class="btn btn-primary" href="" role="button"
+            >{{hood.name}}</a
+          >
+          <p class="card-text">{{hood.location}}</p>
+        </div>
       </div>
+      {%if request.user.profile.neighborhood == hood%}
+      <a
+        name=""
+        id=""
+        class="btn myhood btn-primary"
+        href="{%url 'each_hood' hood.id %}"
+        role="button"
+        >My Hood</a
+      >
+      {%endif%}
     </div>
     {%endfor%}
   </div>
