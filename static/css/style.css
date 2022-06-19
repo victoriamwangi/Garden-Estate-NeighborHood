@@ -97,3 +97,60 @@ body {
     height: 4vw !important;
     border-radius: 50%;
 }
+
+
+/* REGISTRATION FORM */
+
+.registerfrm {
+    width: 35vw;
+    margin-top: 3vw;
+}
+
+.registerfrm .mb-3 .text-muted {
+    display: none;
+}
+
+.allbtn {
+    width: 100%;
+    background-color: purple;
+    height: 3vw !important;
+}
+
+.registerfrm {
+    width: 40vw !important;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px grey;
+    height: 85vh;
+    margin-top: 4vw;
+    border-radius: 10px;
+    padding-left: 5vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+}
+
+.post-form input,
+.loginfrm input,
+.updatefrm input,
+.registerfrm input {
+    width: 90%;
+}
+
+.post-form label,
+.loginfrm label,
+.updatefrm label,
+.registerfrm label {
+    color: rgb(6, 6, 100);
+}
+
+.sign {
+    color: purple !important;
+}
+
+.registerfrm .ask {
+    margin-top: 1.3vw !important;
+}
+
+.registerfrm h5 {
+    color: purple !important;
+    font-size: 1.5vw;
+}

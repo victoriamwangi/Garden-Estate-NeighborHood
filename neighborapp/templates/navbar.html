@@ -21,11 +21,6 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile' user.username%}"
-            >Profile</a
-          >
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{% url 'newpost'%}">Post</a>
         </li>
 
@@ -38,7 +33,11 @@
           />
         </form>
         {%if user.is_authenticated%}
-
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' user.username%}"
+            >Profile</a
+          >
+        </li>
         <li class="nav-item logout">
           <a class="nav-link" href="/logout">Logout</a>
         </li>
