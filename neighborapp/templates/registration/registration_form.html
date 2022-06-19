@@ -7,7 +7,7 @@
       <p>Kindly fill in the correct details</p>
       {%endif%}
       <form class="registerfrm shadow" action="/accounts/register/" method="post">
-        <h5>REGISTER</h5>
+        <h5 class='formtitle'>REGISTER</h5>
         {%bootstrap_form form%}
         <input type="submit" value="Sign Up" class="allbtn" />
          {%csrf_token%}

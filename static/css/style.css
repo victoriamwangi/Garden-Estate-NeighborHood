@@ -118,7 +118,8 @@ body {
     height: 3vw !important;
 }
 
-.registerfrm {
+.registerfrm,
+.update {
     width: 40vw !important;
     margin: 0 auto;
     box-shadow: 1px 1px 5px grey;
@@ -132,16 +133,17 @@ body {
 
 .post-form input,
 .loginfrm input,
-.updatefrm input,
+.update input,
+.update select,
 .registerfrm input {
     width: 90%;
 }
 
 .post-form label,
 .loginfrm label,
-.updatefrm label,
+.update label,
 .registerfrm label {
-    color: rgb(6, 6, 100);
+    color: purple !important;
 }
 
 .sign {
@@ -152,7 +154,7 @@ body {
     margin-top: 1.3vw !important;
 }
 
-.registerfrm h5 {
+.formtitle {
     color: purple !important;
     font-size: 1.5vw;
 }
@@ -178,4 +180,19 @@ body {
 .profdetail img {
     width: 25vw;
     margin-right: 3vw !important;
+}
+
+
+/* UPDATE FORM */
+
+.update {
+    width: 40vw !important;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px grey;
+    margin-top: 4vw;
+    border-radius: 10px;
+    padding-left: 5vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    height: 110vh;
 }
