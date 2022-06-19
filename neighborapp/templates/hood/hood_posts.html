@@ -1,16 +1,20 @@
 {%extends 'base.html'%} {%block content%}
 
 <div class="sidebar" id="infor">
+  <div class="nameofhood">
+    <p><span>Neighborhood Name:</span> <br />{{hood.name| upper }}</p>
+  </div>
+
   <div class="emmergency">
     <p><span>Health Contact:</span> <br />{{hood.health_contact}}</p>
     <p><span>Police Contact:</span> <br />{{hood.police_contact}}</p>
   </div>
-  <ul>
+  <ul class="businesses">
     <p>BUSINESSES</p>
     {%for business in businesses%}
 
     <li>
-      <a class="dropdown-item" href="{%url 'show_business' business.biz_name%}">
+      <a class="biz" href="{%url 'show_business' business.biz_name%}">
         {{business.biz_name}}
       </a>
     </li>

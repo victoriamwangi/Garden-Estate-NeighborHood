@@ -68,14 +68,31 @@ body {
 }
 
 .sidebar p {
-    color: white;
+    color: black;
     /* background-color: rgb(236, 233, 233); */
 }
 
 .sidebar p span {
-    color: purple;
+    color: white;
     font-weight: bold;
     /* background-color: rgb(236, 233, 233); */
+}
+
+.businesses p {
+    color: purple;
+    font-size: 1.4vw;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.businesses .biz {
+    text-decoration: none;
+    color: white !important;
+}
+
+.sidebar .emmergency {
+    /* color: white; */
+    background-color: purple;
 }
 
 .main-content {
@@ -247,4 +264,17 @@ body {
 
 .myhood {
     background-color: purple;
+}
+
+.nameofhood {
+    background-color: white;
+    padding: 1.2vw;
+}
+
+.nameofhood p {
+    color: purple;
+}
+
+.nameofhood p span {
+    color: #a0a0a8;
 }

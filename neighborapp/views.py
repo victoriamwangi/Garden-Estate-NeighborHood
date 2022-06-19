@@ -84,8 +84,10 @@ def update_profile(request, username):
 
        
 @login_required(login_url='/accounts/login/')          
-def new_post(request):
+def new_post(request,):
     user = request.user
+    # hood = get_object_or_404(Neighborhood, id=hood_id)
+    
     if request.method =='POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -93,7 +95,7 @@ def new_post(request):
             post.user = request.user
             
             form.save()
-        return redirect('home')
+        return redirect('each_post')
     else:
         form = PostForm()
     return render(request, 'posts/post.html', {'form': form})
