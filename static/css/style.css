@@ -68,3 +68,21 @@ body {
 .main-content .card {
     width: 45vw;
 }
+
+.main-content .card-img-top {
+    width: 100%;
+    height: 70vh !important;
+    object-fit: cover;
+}
+
+.main-content .card .profview {
+    background-color: white;
+    color: purple;
+    border: none;
+}
+
+.main-content .profimg {
+    width: 4vw !important;
+    height: 4vw !important;
+    border-radius: 50%;
+}

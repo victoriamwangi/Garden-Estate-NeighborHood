@@ -15,18 +15,32 @@
 <div class="main-content">
   {%for post in posts%}
   <div class="card">
-    <a
-      name=""
-      id=""
-      class="btn btn-primary"
-      href="{%url 'show_profile' post.user.username %}"
-      role="button"
-      >{{post.user}}</a
-    >
+    <div class="headprof">
+      <img
+        class="card-img-top profimg"
+        src="{{post.user.profile.prof_image.url}}"
+        alt=""
+      />
+
+      <a
+        name=""
+        id=""
+        class="btn btn-primary profview"
+        href="{%url 'show_profile' post.user.username %}"
+        role="button"
+        >{{post.user}}</a
+      >
+    </div>
+
     <img class="card-img-top" src="{{post.image.url}}" alt="" />
     <div class="card-body">
-      <h4 class="card-title">Title</h4>
+      <h4 class="card-title"></h4>
+      <p class="card-text">{{post.description}}</p>
+      <p class="card-text">{{post.pub_date}}</p>
+
+      {% comment %}
       <p class="card-text">{{post.user.profile.neighborhood}}</p>
+      {% endcomment %}
     </div>
   </div>
   {%endfor%}
