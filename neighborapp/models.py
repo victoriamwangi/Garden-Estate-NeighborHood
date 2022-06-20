@@ -22,7 +22,10 @@ class Neighborhood(models.Model):
         hoods =Neighborhood.objects.all()
         return hoods
     
-    
+    def save_hood(self):
+        return self.save()
+    def delete_hood(self):
+        return self.delete()
     
     def __str__(self):
         return self.name
@@ -79,7 +82,8 @@ class Post(models.Model):
     
     def save_post(self):
         return self.save()
-    
+    def delete_post(self):
+        return self.delete()
     @classmethod
     def get_posts(self):
         all_posts = Post.objects.all()

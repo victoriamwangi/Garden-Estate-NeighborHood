@@ -95,7 +95,7 @@ def new_post(request,):
             post.user = request.user
             
             form.save()
-        return redirect('each_post')
+        return redirect('home')
     else:
         form = PostForm()
     return render(request, 'posts/post.html', {'form': form})
